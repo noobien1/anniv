@@ -3,31 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#1a0a10" />
+  <meta name="theme-color" content="#12060c" />
   <title>Happy Anniversary 💌</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --rose:       #b04a5a;
-      --rose-deep:  #8c3040;
-      --rose-soft:  #cc7080;
-      --rose-pale:  #dca0aa;
-      --gold:       #c8a050;
-      --gold-soft:  #dcc080;
-      --gold-pale:  #e8d8b0;
-      --cream:      #faf5ee;
-      --ivory:      #f5efe4;
-      --parchment:  #efe8d8;
-      --ink:        #2a1418;
-      --ink-soft:   #4a2830;
-      --muted:      #806068;
-      --bg-deep:    #140810;
-      --r-card:     4px;
+      --rose:         #b04658;
+      --rose-deep:    #822536;
+      --rose-soft:    #c8687a;
+      --rose-pale:    #e2a8b4;
+      --gold:         #c2984a;
+      --gold-soft:    #d8b672;
+      --gold-pale:    #ebd8ab;
+      --paper-base:   #f7f2e7;
+      --paper-shadow: #e5dcce;
+      --ink:          #241217;
+      --ink-soft:     #42252e;
+      --muted:        #785860;
+      --bg-deep:      #12060c;
     }
 
     html { height: 100%; }
@@ -37,13 +35,14 @@
       overflow-x: hidden;
       background: var(--bg-deep);
       font-family: 'Cormorant Garamond', Georgia, serif;
-      color: var(--cream);
+      color: #fff;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
+      position: relative;
     }
 
     /* ==========================================================
-       DARK BACKGROUND — moody romantic
+       DARK ROMANTIC AMBIENT BACKGROUND
     ========================================================== */
     .bg-layer {
       position: fixed; inset: 0; z-index: 0;
@@ -51,18 +50,18 @@
     }
     .glow {
       position: absolute; border-radius: 50%;
-      filter: blur(90px); opacity: 0;
+      filter: blur(95px); opacity: 0;
       animation: glowIn 2.5s ease forwards;
     }
-    .glow-1 { width: 380px; height: 380px; background: radial-gradient(circle, rgba(160,60,80,.3) 0%, transparent 70%); top: 0%; left: -10%; animation-delay: 0s; }
-    .glow-2 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(200,160,80,.15) 0%, transparent 70%); top: 55%; right: -12%; animation-delay: .4s; }
-    .glow-3 { width: 250px; height: 250px; background: radial-gradient(circle, rgba(140,48,64,.2) 0%, transparent 70%); bottom: -5%; left: 25%; animation-delay: .7s; }
+    .glow-1 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(160,50,70,.28) 0%, transparent 70%); top: -5%; left: -10%; animation-delay: 0s; }
+    .glow-2 { width: 320px; height: 320px; background: radial-gradient(circle, rgba(200,150,70,.14) 0%, transparent 70%); top: 55%; right: -12%; animation-delay: .4s; }
+    .glow-3 { width: 280px; height: 280px; background: radial-gradient(circle, rgba(130,37,54,.22) 0%, transparent 70%); bottom: -5%; left: 25%; animation-delay: .7s; }
     @keyframes glowIn { 0% { opacity: 0; transform: scale(.7); } 100% { opacity: 1; transform: scale(1); } }
 
     .bg-layer::after {
       content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse 50% 35% at 30% 40%, rgba(160,60,80,.12) 0%, transparent 60%),
-                  radial-gradient(ellipse 40% 30% at 70% 60%, rgba(200,160,80,.08) 0%, transparent 55%);
+      background: radial-gradient(ellipse 50% 35% at 30% 40%, rgba(160,50,70,.12) 0%, transparent 60%),
+                  radial-gradient(ellipse 40% 30% at 70% 60%, rgba(200,150,70,.08) 0%, transparent 55%);
       animation: bgDrift 14s ease-in-out infinite alternate;
     }
     @keyframes bgDrift { 0% { transform: translate(0,0); } 100% { transform: translate(-12px,8px); } }
@@ -70,7 +69,7 @@
     /* ==========================================================
        CANVASES
     ========================================================== */
-    #bokehCanvas   { position: fixed; inset: 0; pointer-events: none; z-index: 1; }
+    #bokehCanvas    { position: fixed; inset: 0; pointer-events: none; z-index: 1; }
     #particleCanvas { position: fixed; inset: 0; pointer-events: none; z-index: 2; }
 
     /* ==========================================================
@@ -89,7 +88,7 @@
     ========================================================== */
     .envelope-wrap {
       display: flex; flex-direction: column;
-      align-items: center; gap: 30px;
+      align-items: center; gap: 32px;
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
       user-select: none; touch-action: manipulation;
@@ -106,17 +105,17 @@
       aspect-ratio: 1; pointer-events: none;
     }
     .ring-wrap svg { width: 100%; height: 100%; transform: rotate(-90deg); overflow: visible; }
-    .ring-track { fill: none; stroke: rgba(200,160,80,.1); stroke-width: 2.5; }
+    .ring-track { fill: none; stroke: rgba(200,160,80,.12); stroke-width: 2.5; }
     .ring-fill {
       fill: none; stroke: url(#ringGrad);
-      stroke-width: 3; stroke-linecap: round;
+      stroke-width: 3.2; stroke-linecap: round;
       stroke-dasharray: 0 1000;
       transition: stroke-dasharray .18s ease;
       filter: drop-shadow(0 0 6px rgba(200,160,80,.5));
     }
 
     /* ==========================================================
-       ENVELOPE — REALISTIC
+       ENVELOPE REALISTIS
     ========================================================== */
     .envelope-stage {
       position: relative;
@@ -124,11 +123,10 @@
       flex-shrink: 0;
     }
 
-    /* warm halo */
     .envelope-stage::before {
-      content: ''; position: absolute; inset: -30px;
+      content: ''; position: absolute; inset: -28px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(200,160,80,.12) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(200,160,80,.14) 0%, transparent 65%);
       z-index: -1;
       animation: halo 4s ease-in-out infinite alternate;
     }
@@ -137,7 +135,7 @@
     .envelope {
       width: 100%; aspect-ratio: 5/3.2;
       position: relative;
-      filter: drop-shadow(0 6px 24px rgba(0,0,0,.45)) drop-shadow(0 1px 4px rgba(0,0,0,.3));
+      filter: drop-shadow(0 8px 28px rgba(0,0,0,.5)) drop-shadow(0 2px 6px rgba(0,0,0,.35));
       transition: transform .18s ease;
       will-change: transform;
     }
@@ -150,129 +148,96 @@
       100% { transform: scale(1) rotate(0); }
     }
 
-    /* -- envelope body: realistic kraft/linen -- */
+    /* envelope kraft/linen material */
     .env-body {
       position: absolute; inset: 0;
-      background: linear-gradient(168deg, #f0e6d4 0%, #e8dcc8 40%, #ddd0b8 100%);
-      border-radius: 6px;
-      border: 1px solid rgba(160,140,100,.35);
-      /* paper grain */
+      background: linear-gradient(168deg, #ebdcc7 0%, #dfcfb8 45%, #d4c2a8 100%);
+      border-radius: 5px;
+      border: 1px solid rgba(150,125,90,.4);
       box-shadow:
-        inset 0 0 0 1px rgba(255,255,255,.15),
-        inset 0 2px 8px rgba(180,160,120,.12);
+        inset 0 1px 2px rgba(255,255,255,.35),
+        inset 0 -2px 6px rgba(110,85,55,.15);
     }
-
-    /* subtle paper texture via noise gradient */
     .env-body::after {
-      content: ''; position: absolute; inset: 0;
-      border-radius: 6px;
-      background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
-      background-size: 128px 128px;
-      opacity: .6;
+      content: ''; position: absolute; inset: 0; border-radius: 5px;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
+      opacity: .7; pointer-events: none;
     }
 
-    .env-back {
-      position: absolute; inset: 0;
-      border-radius: 6px; overflow: hidden;
-    }
+    .env-back { position: absolute; inset: 0; border-radius: 5px; overflow: hidden; }
     .env-back::after {
       content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 58%;
-      background: linear-gradient(175deg, #e0d4be 0%, #d5c8b0 100%);
+      background: linear-gradient(175deg, #d8c7ad 0%, #cbb89b 100%);
       clip-path: polygon(0 100%, 50% 0%, 100% 100%);
     }
 
     .env-left {
       position: absolute; top: 18%; bottom: 0; left: 0; width: 50%;
-      background: linear-gradient(90deg, #d8ccb4 0%, #e0d4be 100%);
+      background: linear-gradient(90deg, #d0be9f 0%, #dac9b0 100%);
       clip-path: polygon(0 0, 100% 50%, 0 100%);
-      border-bottom-left-radius: 6px;
+      border-bottom-left-radius: 5px;
     }
     .env-right {
       position: absolute; top: 18%; bottom: 0; right: 0; width: 50%;
-      background: linear-gradient(270deg, #d8ccb4 0%, #e0d4be 100%);
+      background: linear-gradient(270deg, #d0be9f 0%, #dac9b0 100%);
       clip-path: polygon(100% 0, 0 50%, 100% 100%);
-      border-bottom-right-radius: 6px;
+      border-bottom-right-radius: 5px;
     }
+    .env-fold-l, .env-fold-r { position: absolute; bottom: 0; width: 50%; height: 82%; pointer-events: none; z-index: 2; }
+    .env-fold-l { left: 0; background: linear-gradient(135deg, transparent 48%, rgba(0,0,0,.06) 50%, transparent 52%); }
+    .env-fold-r { right: 0; background: linear-gradient(225deg, transparent 48%, rgba(0,0,0,.06) 50%, transparent 52%); }
 
-    /* fold shadow lines */
-    .env-fold-l, .env-fold-r {
-      position: absolute; bottom: 0; width: 50%; height: 82%;
-      pointer-events: none; z-index: 2;
-    }
-    .env-fold-l {
-      left: 0;
-      background: linear-gradient(135deg, transparent 48%, rgba(0,0,0,.05) 50%, transparent 52%);
-    }
-    .env-fold-r {
-      right: 0;
-      background: linear-gradient(225deg, transparent 48%, rgba(0,0,0,.05) 50%, transparent 52%);
-    }
-
-    /* -- flap (top) -- */
     .env-flap {
-      position: absolute; top: 0; left: 0; right: 0; height: 52%;
+      position: absolute; top: 0; left: 0; right: 0; height: 53%;
       transform-origin: top center;
       transition: transform .85s cubic-bezier(.4,0,.18,1);
       z-index: 3;
     }
     .env-flap::before {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(178deg, #ece2d0 0%, #e0d4be 60%, #d5c8b0 100%);
+      background: linear-gradient(178deg, #ebdcc7 0%, #d8c7ad 60%, #cdbca0 100%);
       clip-path: polygon(0 0, 50% 100%, 100% 0);
-      border-top-left-radius: 6px; border-top-right-radius: 6px;
-    }
-    /* flap inner shadow */
-    .env-flap::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(178deg, transparent 40%, rgba(0,0,0,.04) 100%);
-      clip-path: polygon(0 0, 50% 100%, 100% 0);
-      pointer-events: none;
+      border-top-left-radius: 5px; border-top-right-radius: 5px;
+      box-shadow: inset 0 1px 2px rgba(255,255,255,.4);
     }
     .is-open .env-flap { transform: rotateX(180deg); }
 
-    /* -- wax seal on envelope -- */
+    /* Wax Seal on Envelope */
     .wax-seal-env {
-      position: absolute;
-      top: calc(52% - 22px); left: 50%;
+      position: absolute; top: calc(53% - 23px); left: 50%;
       transform: translateX(-50%);
       width: 46px; height: 46px; z-index: 4;
       transition: transform .5s ease, opacity .5s ease;
     }
     .wax-seal-env .wax {
       width: 100%; height: 100%; border-radius: 50%;
-      background: radial-gradient(circle at 38% 35%, #c44058 0%, #a83048 45%, #8c2838 100%);
-      box-shadow:
-        0 3px 10px rgba(0,0,0,.4),
-        inset 0 2px 4px rgba(255,255,255,.15),
-        inset 0 -2px 6px rgba(0,0,0,.2);
+      background: radial-gradient(circle at 36% 32%, #be3c54 0%, #9e2b3e 48%, #781c2c 100%);
+      box-shadow: 0 4px 12px rgba(0,0,0,.45), inset 0 2px 4px rgba(255,255,255,.22), inset 0 -2px 6px rgba(0,0,0,.3);
       display: flex; align-items: center; justify-content: center;
-      position: relative;
-      /* irregular wax edge */
-      border: 2px solid rgba(140,40,56,.6);
+      border: 2px solid rgba(120,28,44,.5);
     }
     .wax-seal-env .wax::before {
-      content: '♥'; font-size: 18px; color: rgba(255,255,255,.88);
-      text-shadow: 0 1px 2px rgba(0,0,0,.3);
+      content: '♥'; font-size: 19px; color: rgba(255,255,255,.92);
+      text-shadow: 0 1px 3px rgba(0,0,0,.35);
     }
     .is-open .wax-seal-env { transform: translateX(-50%) scale(0) rotate(90deg); opacity: 0; }
 
-    /* tap counter */
+    /* Tap Counter */
     .tap-counter {
       position: absolute; top: -14px; right: -14px;
       background: linear-gradient(135deg, var(--rose-deep), var(--rose));
       color: #fff;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 11px; font-weight: 500;
-      padding: 4px 9px; border-radius: 999px;
-      box-shadow: 0 3px 12px rgba(140,48,64,.5);
+      font-size: 11px; font-weight: 600;
+      padding: 4px 10px; border-radius: 999px;
+      box-shadow: 0 3px 12px rgba(130,37,54,.55);
       opacity: 0; transform: scale(.5);
       transition: transform .2s, opacity .2s;
       pointer-events: none; z-index: 5;
     }
     .tap-counter.show { opacity: 1; transform: scale(1); }
 
-    /* burst */
+    /* Heart Burst */
     .burst-heart {
       position: fixed; pointer-events: none;
       font-size: 20px; z-index: 50;
@@ -285,247 +250,328 @@
     }
 
     /* ==========================================================
-       HINT + DOTS
+       HINT & DOTS
     ========================================================== */
-    .hint-area {
-      display: flex; flex-direction: column;
-      align-items: center; gap: 12px;
-      transition: opacity .4s;
-    }
+    .hint-area { display: flex; flex-direction: column; align-items: center; gap: 12px; transition: opacity .4s; }
     .hint-area.hidden { opacity: 0; pointer-events: none; }
-
     .hint {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic; font-size: clamp(15px, 4vw, 17px);
-      color: var(--rose-pale);
-      text-shadow: 0 0 20px rgba(176,74,90,.25);
+      font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(15px, 4vw, 17px);
+      color: var(--rose-pale); text-shadow: 0 0 20px rgba(176,70,88,.3);
       animation: hintPulse 2.5s ease-in-out infinite;
     }
     @keyframes hintPulse { 0%,100% { opacity: .6; } 50% { opacity: 1; } }
-
     .dots { display: flex; gap: 5px; }
-    .dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: rgba(220,192,128,.15);
-      transition: all .22s ease;
-    }
-    .dot.filled {
-      background: var(--gold-soft);
-      transform: scale(1.4);
-      box-shadow: 0 0 6px rgba(200,160,80,.45);
-    }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(216,182,114,.18); transition: all .22s ease; }
+    .dot.filled { background: var(--gold-soft); transform: scale(1.4); box-shadow: 0 0 6px rgba(194,152,74,.5); }
 
     /* ==========================================================
        BACKDROP
     ========================================================== */
     .backdrop {
       position: fixed; inset: 0;
-      background: rgba(12,4,8,.65);
-      backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+      background: rgba(10,3,7,.7);
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
       z-index: 9; opacity: 0;
       transition: opacity .55s; pointer-events: none;
     }
     .backdrop.visible { opacity: 1; pointer-events: auto; }
 
     /* ==========================================================
-       LETTER — REALISTIC STATIONERY
+       REALISTIC LETTER SHEET (LEMBARAN SURAT KERTAS ASLI)
     ========================================================== */
     .letter-overlay {
       position: fixed; inset: 0; z-index: 10;
       display: flex; align-items: center; justify-content: center;
-      padding: 14px; pointer-events: none;
+      padding: 16px 12px; pointer-events: none;
     }
 
+    /* Paper Container with Physical Paper Shadow & Slight Tilt */
     .letter-card {
-      width: 100%; max-width: 400px;
-      max-height: calc(100dvh - 28px);
+      width: 100%; max-width: 410px;
+      max-height: calc(100dvh - 32px);
       display: flex; flex-direction: column;
-      overflow: hidden; position: relative;
+      position: relative;
+      /* Realistic Torn/Fibrous Paper Edge with soft border */
+      background: var(--paper-base);
+      border-radius: 2px 2px 3px 3px;
 
-      /* realistic paper */
-      background: linear-gradient(178deg, #faf6ee 0%, #f5f0e5 50%, #f0eadd 100%);
-      border: 1px solid rgba(180,160,120,.35);
-      border-radius: var(--r-card);
-
-      /* real paper layered shadows */
+      /* Real Paper Multi-layered Shading: Contact shadow + diffuse ambient shadow + slight corner curl */
       box-shadow:
-        0 1px 0 rgba(255,255,255,.5) inset,
-        0 0 0 1px rgba(0,0,0,.06),
-        0 2px 4px rgba(0,0,0,.08),
-        0 8px 24px rgba(0,0,0,.15),
-        0 24px 60px rgba(0,0,0,.25),
-        /* subtle edge highlight */
-        -1px 0 0 rgba(255,250,240,.3),
-        1px 0 0 rgba(255,250,240,.3);
+        0 1px 2px rgba(0,0,0,.15),
+        0 6px 18px rgba(0,0,0,.28),
+        0 20px 48px rgba(0,0,0,.45),
+        0 0 0 1px rgba(160,135,100,.25),
+        inset 0 0 40px rgba(195,170,130,.15),
+        inset 0 0 10px rgba(150,120,80,.1);
 
-      transform: translateY(100px) scale(.84);
+      transform: translateY(120px) scale(.82) rotate(-0.5deg);
       opacity: 0;
-      transition: transform 1.1s cubic-bezier(.16,1,.3,1), opacity .7s ease;
+      transition: transform 1.15s cubic-bezier(.16,1,.3,1), opacity .75s ease;
       pointer-events: none;
     }
 
-    /* paper grain texture */
+    /* Realistic Paper Fiber & Texture Noise */
     .letter-card::before {
       content: ''; position: absolute; inset: 0;
-      border-radius: var(--r-card);
       background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
-      background-size: 100px 100px;
-      pointer-events: none; z-index: 0;
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.5   0 0 0 0 0.4   0 0 0 0 0.3   0 0 0 0.07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperNoise)'/%3E%3C/svg%3E");
+      background-size: 120px 120px;
+      pointer-events: none; z-index: 1; opacity: .85;
+      border-radius: inherit;
     }
 
-    /* left red margin line like real stationery */
+    /* Physical Corner Curl / Edge Shadow at Bottom */
     .letter-card::after {
       content: ''; position: absolute;
-      top: 0; bottom: 0; left: 34px;
-      width: 1px;
-      background: rgba(200,80,80,.12);
-      z-index: 1;
+      bottom: -6px; right: 12px; left: 12px; height: 16px;
+      background: radial-gradient(ellipse at 50% 0%, rgba(0,0,0,.35) 0%, transparent 75%);
+      z-index: -1; pointer-events: none;
     }
 
     .letter-card.visible {
-      transform: translateY(0) scale(1);
+      transform: translateY(0) scale(1) rotate(-0.5deg);
       opacity: 1; pointer-events: auto;
-      animation: floatLetter 6s ease-in-out 1.1s infinite alternate;
+      animation: floatLetter 6.5s ease-in-out 1.2s infinite alternate;
     }
-    @keyframes floatLetter { from { transform: translateY(0); } to { transform: translateY(-6px); } }
+    @keyframes floatLetter {
+      0%   { transform: translateY(0) scale(1) rotate(-0.5deg); }
+      100% { transform: translateY(-7px) scale(1) rotate(0.4deg); }
+    }
 
-    /* close */
+    /* Two Horizontal Paper Fold Creases (Surat Asli Dilipat Tiga) */
+    .fold-crease {
+      position: absolute; left: 0; right: 0;
+      height: 6px; pointer-events: none; z-index: 4;
+    }
+    .crease-1 {
+      top: 32%;
+      background: linear-gradient(180deg,
+        rgba(0,0,0,.04) 0%,
+        rgba(0,0,0,.08) 35%,
+        rgba(255,255,255,.45) 55%,
+        rgba(255,255,255,.0) 100%
+      );
+    }
+    .crease-2 {
+      top: 67%;
+      background: linear-gradient(180deg,
+        rgba(0,0,0,.04) 0%,
+        rgba(0,0,0,.08) 35%,
+        rgba(255,255,255,.45) 55%,
+        rgba(255,255,255,.0) 100%
+      );
+    }
+
+    /* Antique Brass Paperclip at the Top Right */
+    .letter-clip {
+      position: absolute; top: -10px; right: 28px;
+      width: 14px; height: 38px;
+      border: 2.5px solid #b8924b;
+      border-radius: 8px 8px 3px 3px;
+      background: transparent;
+      box-shadow: 2px 3px 6px rgba(0,0,0,.35), inset 0 1px 2px rgba(255,255,255,.4);
+      z-index: 10; pointer-events: none;
+    }
+    .letter-clip::after {
+      content: ''; position: absolute;
+      top: 6px; left: 1px; right: 1px; bottom: 4px;
+      border: 2px solid #a68138;
+      border-radius: 5px 5px 2px 2px;
+      border-bottom: none;
+    }
+
+    /* Vintage Close Button (Discreet antique seal) */
     .letter-close {
-      position: absolute; top: 10px; right: 10px;
-      width: 30px; height: 30px; border: none;
-      background: rgba(180,160,120,.15); border-radius: 50%;
+      position: absolute; top: 12px; right: 12px;
+      width: 28px; height: 28px; border: none;
+      background: rgba(140,110,75,.12); border-radius: 50%;
       cursor: pointer; color: var(--rose-deep); font-size: 12px;
       display: flex; align-items: center; justify-content: center;
       transition: background .2s, transform .2s;
       -webkit-tap-highlight-color: transparent; touch-action: manipulation;
-      z-index: 10;
+      z-index: 15;
     }
-    .letter-close:hover { background: rgba(180,160,120,.3); transform: scale(1.1); }
-    .letter-close:active { transform: scale(.88); }
+    .letter-close:hover { background: rgba(140,110,75,.25); transform: scale(1.1); }
+    .letter-close:active { transform: scale(.9); }
 
-    /* scroll area */
+    /* Scrollable Letter Body Area */
     .letter-scroll {
       overflow-y: auto; -webkit-overflow-scrolling: touch;
       overscroll-behavior: contain;
-      padding: 28px 28px 28px 46px; /* left padding past the red line */
+      padding: 34px 26px 28px 44px; /* Space on left past margin line */
       display: flex; flex-direction: column;
       position: relative; z-index: 2;
       scrollbar-width: thin;
-      scrollbar-color: rgba(180,160,120,.2) transparent;
+      scrollbar-color: rgba(160,130,90,.25) transparent;
       color: var(--ink);
-    }
-    .letter-scroll::-webkit-scrollbar { width: 3px; }
-    .letter-scroll::-webkit-scrollbar-thumb { background: rgba(180,160,120,.2); border-radius: 999px; }
 
-    /* ruled lines on paper */
-    .letter-scroll {
+      /* Authentic Stationery Ruled Lines */
       background-image:
         repeating-linear-gradient(
           0deg,
           transparent, transparent 31px,
-          rgba(120,140,180,.08) 31px, rgba(120,140,180,.08) 32px
+          rgba(140,160,190,.07) 31px, rgba(140,160,190,.07) 32px
         );
       background-size: 100% 32px;
-      background-position: 0 0;
+    }
+    .letter-scroll::-webkit-scrollbar { width: 3px; }
+    .letter-scroll::-webkit-scrollbar-thumb { background: rgba(160,130,90,.3); border-radius: 999px; }
+
+    /* Left Red Margin Line of Real Letterpad */
+    .letter-scroll::before {
+      content: ''; position: absolute;
+      top: 0; bottom: 0; left: 34px;
+      width: 1px;
+      background: rgba(190,70,80,.14);
+      pointer-events: none;
     }
 
-    /* date */
-    .letter-date {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: clamp(11px, 2.8vw, 13px);
-      color: var(--muted);
-      text-align: right;
-      margin-bottom: 18px;
+    /* Vintage Postmark Stamp at Top Left */
+    .postmark-badge {
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 14px; opacity: .75;
     }
-
-    /* header */
-    .letter-header { text-align: center; margin-bottom: 22px; }
-
-    .letter-header .to-line {
+    .postmark-stamp {
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 1px dashed rgba(160,110,60,.5);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; color: var(--gold);
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: clamp(9px, 2.2vw, 10.5px);
-      letter-spacing: .2em; text-transform: uppercase;
-      color: var(--rose-pale); margin-bottom: 8px;
+      text-transform: uppercase; letter-spacing: .05em;
+      transform: rotate(-12deg);
+    }
+    .postmark-date {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 13px; color: var(--muted);
+    }
+
+    /* Letter Header */
+    .letter-header {
+      text-align: center; margin-bottom: 22px;
+    }
+    .letter-header .to-label {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(17px, 4.8vw, 21px);
+      color: var(--rose-soft); margin-bottom: 4px;
     }
     .letter-header h1 {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(17px, 5vw, 22px);
+      font-size: clamp(18px, 5.2vw, 22px);
       font-weight: 700; color: var(--rose-deep);
-      line-height: 1.32;
+      line-height: 1.35;
+      letter-spacing: .01em;
     }
     .letter-header h1 em {
-      display: block; font-style: italic; font-weight: 400;
-      font-size: clamp(13px, 3.5vw, 15.5px);
-      color: var(--rose-soft); margin-top: 4px;
+      display: block;
+      font-family: 'Dancing Script', cursive;
+      font-weight: 700;
+      font-size: clamp(19px, 5.5vw, 23px);
+      color: var(--rose); margin-top: 5px;
     }
 
-    /* divider */
-    .orn {
-      display: flex; align-items: center; gap: 10px;
-      margin: 14px 0 18px;
+    /* Vintage Botanical Divider */
+    .letter-divider {
+      display: flex; align-items: center; justify-content: center;
+      gap: 12px; margin: 12px 0 20px;
     }
-    .orn::before, .orn::after {
+    .letter-divider::before, .letter-divider::after {
       content: ''; flex: 1; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(200,160,80,.3), transparent);
+      background: linear-gradient(90deg, transparent, rgba(180,140,80,.35), transparent);
     }
-    .orn-icon { font-size: 10px; color: var(--gold); }
+    .letter-divider svg { width: 22px; height: 12px; fill: var(--gold); opacity: .7; }
 
-    /* body */
+    /* Letter Body — Handwritten fountain pen feel */
     .letter-body {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(15px, 4vw, 17px);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(15.5px, 4.2vw, 17.5px);
       line-height: 1.95;
       color: var(--ink);
     }
-    .letter-body p { margin-bottom: 16px; }
-    .letter-body p:last-child { margin-bottom: 0; }
+    .letter-body p {
+      margin-bottom: 16px;
+      text-indent: 1.4em; /* Real letter paragraph indentation */
+    }
+    .letter-body p.no-indent { text-indent: 0; }
 
     .letter-body .greeting {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(15.5px, 4.2vw, 18px);
-      font-weight: 600; color: var(--rose-deep);
-      margin-bottom: 16px;
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(20px, 5.6vw, 24px);
+      font-weight: 700;
+      color: var(--rose-deep);
+      margin-bottom: 18px;
+      text-align: center;
+      text-indent: 0;
+      line-height: 1.3;
     }
 
-    /* footer */
+    /* Drop Cap for the First Letter */
+    .letter-body p.first-para { text-indent: 0; }
+    .letter-body p.first-para::first-letter {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8em;
+      float: left;
+      line-height: .75;
+      margin-right: 6px;
+      margin-top: 4px;
+      color: var(--rose-deep);
+    }
+
+    /* Footer Quote & Signature */
     .letter-footer {
-      margin-top: 24px; padding-top: 16px;
-      border-top: 1px solid rgba(180,160,120,.2);
+      margin-top: 26px; padding-top: 20px;
+      border-top: 1px solid rgba(170,140,90,.2);
       text-align: center;
     }
     .letter-footer blockquote {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: clamp(13px, 3.4vw, 15px);
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: clamp(13.5px, 3.6vw, 15.5px);
       color: var(--rose-soft); line-height: 1.65;
       padding: 0 16px; position: relative;
     }
     .letter-footer blockquote::before {
       content: '\201C'; position: absolute; left: 0; top: -8px;
-      font-size: 34px; color: rgba(200,160,80,.3); font-family: Georgia; line-height: 1;
+      font-size: 34px; color: rgba(194,152,74,.35); font-family: Georgia; line-height: 1;
     }
     .letter-footer blockquote::after {
-      content: '\201D'; font-size: 34px; color: rgba(200,160,80,.3);
+      content: '\201D'; font-size: 34px; color: rgba(194,152,74,.35);
       font-family: Georgia; line-height: 1; vertical-align: -14px;
     }
+
     .letter-footer .sign {
-      margin-top: 16px;
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: clamp(12px, 3vw, 14px);
-      color: var(--gold);
+      margin-top: 18px;
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(18px, 4.8vw, 22px);
+      font-weight: 700;
+      color: var(--rose-deep);
     }
+
+    /* Fold & Put Back Letter Button at the Bottom */
+    .fold-back-btn {
+      margin-top: 24px;
+      align-self: center;
+      background: linear-gradient(135deg, rgba(180,70,88,.08), rgba(194,152,74,.12));
+      border: 1px dashed rgba(160,120,70,.4);
+      border-radius: 20px;
+      padding: 8px 18px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 13.5px;
+      color: var(--rose-deep);
+      cursor: pointer;
+      display: flex; align-items: center; gap: 6px;
+      transition: background .2s, transform .2s;
+    }
+    .fold-back-btn:hover { background: rgba(180,70,88,.15); transform: translateY(-1px); }
+    .fold-back-btn:active { transform: scale(.97); }
 
     /* ==========================================================
        MUSIC BTN
-    ========================================================== */
+    ========================================================= */
     .music-btn {
       position: fixed; top: 16px; right: 16px; z-index: 20;
       width: 42px; height: 42px; border-radius: 50%;
       border: 1px solid rgba(200,160,80,.3);
-      background: rgba(20,8,16,.75);
+      background: rgba(18,6,12,.75);
       backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
       cursor: pointer;
       display: flex; align-items: center; justify-content: center;
@@ -553,7 +599,7 @@
 
     /* ==========================================================
        REDUCED MOTION
-    ========================================================== */
+    ========================================================= */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: .01ms !important;
@@ -565,6 +611,7 @@
 </head>
 
 <body>
+  <!-- Ambient background glow -->
   <div class="bg-layer" aria-hidden="true">
     <div class="glow glow-1"></div>
     <div class="glow glow-2"></div>
@@ -574,26 +621,30 @@
   <canvas id="bokehCanvas" aria-hidden="true"></canvas>
   <canvas id="particleCanvas" aria-hidden="true"></canvas>
 
+  <!-- Audio: Banda Neira -->
   <audio id="bgAudio" loop preload="none">
     <source src="Banda Neira - Sampai Jadi Debu (Lirik Lagu).mp3" type="audio/mpeg" />
   </audio>
 
+  <!-- Floating music control toggle -->
   <button class="music-btn" id="musicBtn" aria-label="Putar / pause musik">
     <span class="icon-play"  aria-hidden="true">🎵</span>
     <span class="icon-pause" aria-hidden="true">⏸</span>
   </button>
 
+  <!-- Main interaction scene -->
   <main class="scene">
     <div class="envelope-wrap" id="envelopeWrap" role="button" tabindex="0"
          aria-label="Ketuk amplop 15 kali untuk membuka">
 
+      <!-- Golden progress indicator ring -->
       <div class="ring-wrap" aria-hidden="true">
         <svg viewBox="0 0 200 200">
           <defs>
             <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%"   stop-color="#dcc080"/>
-              <stop offset="50%"  stop-color="#c8a050"/>
-              <stop offset="100%" stop-color="#dca0aa"/>
+              <stop offset="0%"   stop-color="#ebd8ab"/>
+              <stop offset="50%"  stop-color="#c2984a"/>
+              <stop offset="100%" stop-color="#e2a8b4"/>
             </linearGradient>
           </defs>
           <circle class="ring-track" cx="100" cy="100" r="92"/>
@@ -601,6 +652,7 @@
         </svg>
       </div>
 
+      <!-- Realistic Envelope -->
       <div class="envelope-stage">
         <div class="envelope" id="envelope">
           <div class="env-back"></div>
@@ -617,6 +669,7 @@
         <div class="tap-counter" id="tapCounter" aria-hidden="true">0 / 15</div>
       </div>
 
+      <!-- Hint & progress dots -->
       <div class="hint-area" id="hintArea">
         <p class="hint" id="hintText">Ketuk amplopnya terus ya sayang 💌</p>
         <div class="dots" id="dots" aria-hidden="true"></div>
@@ -626,42 +679,73 @@
 
   <div class="backdrop" id="backdrop" aria-hidden="true"></div>
 
+  <!-- Realistic Letter Sheet Overlay -->
   <div class="letter-overlay" role="region" aria-label="Surat anniversary">
     <article class="letter-card" id="letterCard" aria-hidden="true">
+      <!-- Antique paperclip -->
+      <div class="letter-clip" aria-hidden="true"></div>
+
+      <!-- Fold creases (showing it was unfolded from the envelope) -->
+      <div class="fold-crease crease-1" aria-hidden="true"></div>
+      <div class="fold-crease crease-2" aria-hidden="true"></div>
+
+      <!-- Discreet close seal -->
       <button class="letter-close" id="closeBtn" aria-label="Tutup surat">✕</button>
 
+      <!-- Scrollable authentic paper content -->
       <div class="letter-scroll">
 
-        <p class="letter-date">November 2026</p>
+        <!-- Postmark / date mark -->
+        <div class="postmark-badge" aria-hidden="true">
+          <div class="postmark-stamp">LOVE</div>
+          <p class="postmark-date">Special Anniversary Edition ✦</p>
+        </div>
 
         <header class="letter-header">
-          <p class="to-line">— untuk kamu —</p>
+          <p class="to-label">Untuk Bidadariku Tersayang,</p>
           <h1>
             Dear Naira Stefany Erwan Wijaya
             <em>My Beautiful Girl 🌸</em>
           </h1>
         </header>
 
-        <div class="orn" aria-hidden="true"><span class="orn-icon">✦</span></div>
+        <!-- Floral ornament divider -->
+        <div class="letter-divider" aria-hidden="true">
+          <svg viewBox="0 0 24 12"><path d="M12 0 C14 4 18 6 24 6 C18 6 14 8 12 12 C10 8 6 6 0 6 C6 6 10 4 12 0 Z"/></svg>
+        </div>
 
+        <!-- Handwritten letter text -->
         <section class="letter-body">
           <p class="greeting">Happy Anniversary my love, my little cloudbread 🤍</p>
-          <p>Makasih yaa sayangg udah mau nemenin i dan udah mau stay sama i selama ini, jujur aja i gak nyangka hubungan kita bisa seawet ini dan banyak hal juga yang udah kita lewatin selama ini.</p>
-          <p>Makasih banget udah mau nerima segala kekurangan i, maaf kalo i sering buat salah, dan maaf juga i kurang peka kadang sama hubungan kita — i harap hubungan kita tetep awet.</p>
-          <p>I don't want anyone else, i just want you sayang&nbsp;💕 i love you so much sayangg, semoga kita bisa sama-sama lebih baik kedepannya yaa — i love you more than anything.</p>
+          <p class="first-para">
+            Makasih yaa sayangg udah mau nemenin i dan udah mau stay sama i selama ini, jujur aja i gak nyangka hubungan kita bisa seawet ini dan banyak hal juga yang udah kita lewatin selama ini.
+          </p>
+          <p>
+            Makasih banget udah mau nerima segala kekurangan i, maaf kalo i sering buat salah, dan maaf juga i kurang peka kadang sama hubungan kita — i harap hubungan kita tetep awet.
+          </p>
+          <p>
+            I don't want anyone else, i just want you sayang&nbsp;💕 i love you so much sayangg, semoga kita bisa sama-sama lebih baik kedepannya yaa — i love you more than anything.
+          </p>
         </section>
 
+        <!-- Quote & Signature -->
         <footer class="letter-footer">
           <blockquote>if people come and go, i will stay here for you</blockquote>
-          <p class="sign">— with all my heart 🤍</p>
+          <p class="sign">— with all my heart, always yours 🤍</p>
+
+          <!-- Tactile action to fold it back -->
+          <button class="fold-back-btn" id="foldBackBtn" type="button">
+            <span>✉️</span> Lipat & Simpan Surat
+          </button>
         </footer>
-      </div>
+
+      </div><!-- /.letter-scroll -->
     </article>
   </div>
 
   <script>
   /* ==========================================================
-     BOKEH
+     BOKEH EFFECT
   ========================================================== */
   (function(){
     const c=document.getElementById('bokehCanvas'),x=c.getContext('2d');
@@ -685,7 +769,7 @@
   })();
 
   /* ==========================================================
-     PARTICLES
+     PARTICLES EFFECT (HEARTS & PETALS)
   ========================================================== */
   (function(){
     const c=document.getElementById('particleCanvas'),x=c.getContext('2d');
@@ -725,21 +809,18 @@
   })();
 
   /* ==========================================================
-     RING
+     RING & DOTS
   ========================================================== */
   const RING_R=92,RING_C=2*Math.PI*RING_R;
   const ringFill=document.getElementById('ringFill');
   ringFill.style.strokeDasharray=`0 ${RING_C}`;
 
-  /* ==========================================================
-     DOTS
-  ========================================================== */
   const TOTAL=15,dotsEl=document.getElementById('dots');
   for(let i=0;i<TOTAL;i++){const d=document.createElement('span');d.className='dot';dotsEl.appendChild(d);}
   const dotNodes=dotsEl.querySelectorAll('.dot');
 
   /* ==========================================================
-     MAIN
+     INTERACTIONS
   ========================================================== */
   (function(){
     const wrap=document.getElementById('envelopeWrap');
@@ -750,6 +831,7 @@
     const backdrop=document.getElementById('backdrop');
     const letterCard=document.getElementById('letterCard');
     const closeBtn=document.getElementById('closeBtn');
+    const foldBackBtn=document.getElementById('foldBackBtn');
     const musicBtn=document.getElementById('musicBtn');
     const audio=document.getElementById('bgAudio');
 
@@ -830,6 +912,7 @@
     wrap.addEventListener('keydown',(e)=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();handleTap(e);}});
 
     closeBtn.addEventListener('click',closeLetter);
+    if(foldBackBtn) foldBackBtn.addEventListener('click',closeLetter);
     backdrop.addEventListener('click',closeLetter);
     document.addEventListener('keydown',(e)=>{if(e.key==='Escape'&&opened)closeLetter();});
 
